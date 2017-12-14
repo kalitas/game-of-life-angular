@@ -1,8 +1,8 @@
 <div>
     <canvas #myCanvas width="400" height="400" style="border:1px solid #000000;"></canvas> 
     <div>
-       Choose Grid Type <button type="button" (click)="switchShapeTapped(shapeType.glinder)">Glinder</button> 
-       <button type="button" (click)="switchShapeTapped(shapeType.random)">Random</button><br/> 
+       Choose Grid Type <button type="button" (click)="switchShapeTapped(shapeService.shapeType.glinder)">Glinder</button> 
+       <button type="button" (click)="switchShapeTapped(shapeService.shapeType.random)">Random</button><br/> 
        Delay Between Frames <input type="range" min="1" max="1000" [(ngModel)]="delayBetweenFrames"/>
     </div>
   </div>

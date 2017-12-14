@@ -1,8 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Grid } from '../Models/Grid/grid'
-
+ 
 @Injectable()
 export class ShapeService {
+  shapeType;
+  constructor(){
+    enum ShapeType{
+      glinder = 0, //number here just in case other developer will insert new shape type in the middle of the shapes and not in the end     
+      random = 1
+    }; 
+    this.shapeType = ShapeType;
+  }
+
+  initShapeType(type, grid){
+    switch (type){
+      case this.shapeType.glinder:
+        this.setGlinder(grid);
+        break;
+      case this.shapeType.random:
+        this.setRandom(grid);
+        break;
+    }
+  }
 
   setGlinder(grid){
     grid[9][44] = 1

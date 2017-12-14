@@ -9,24 +9,20 @@ import { ShapeService } from '../Services/shape.service'
 }) 
 
 export class AppComponent {
-     ctx : CanvasRenderingContext2D;
-     grid : Grid;
-     delayBetweenFrames : number;
-     shapeType;
-     constructor(private shapeService: ShapeService) {
+    ctx : CanvasRenderingContext2D;
+    grid : Grid;
+    delayBetweenFrames : number;
+    constructor(private shapeService: ShapeService) {
         this.delayBetweenFrames = 0;
-        enum ShapeType{
-            glinder = 0, //number here just in case other developer will insert new shape type in the middle of the shapes and not in the end     
-            random = 1
-        };  
-        this.shapeType = ShapeType;
-     }
-     @ViewChild("myCanvas") myCanvas: ElementRef; 
+    }
+    @ViewChild("myCanvas") myCanvas: ElementRef; 
    
-     ngAfterViewInit() {
+    //
+    ngAfterViewInit() {
         this.ctx = this.myCanvas.nativeElement.getContext("2d");
         this.ctx.fillStyle = "#ff0000";  
     }
+
     //start is a function which loops by custom frames
     start() {
         this.clearGridFromCanvas();        
@@ -87,14 +83,7 @@ export class AppComponent {
     switchShapeTapped(type){
         this.grid = null;
         this.grid = new Grid(400,400); //I think this (400) is more readable and less code than decalre a variable because we use it only once        this.shapeService.setGlinder(this.grid);   
-        switch (type){
-            case this.shapeType.glinder:
-                this.shapeService.setGlinder(this.grid);            
-                break;
-            case this.shapeType.random:
-                this.shapeService.setRandom(this.grid);                        
-        }
+        this.shapeService.initShapeType(type, this.grid);
         this.start(); 
-        
     }
   }
