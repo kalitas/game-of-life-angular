@@ -17,7 +17,7 @@ export class AppComponent {
     }
     @ViewChild("myCanvas") myCanvas: ElementRef; 
    
-    //
+    //ngAfterViewInit is called only after the view did load and the canvas is ready
     ngAfterViewInit() {
         this.ctx = this.myCanvas.nativeElement.getContext("2d");
         this.ctx.fillStyle = "#ff0000";  
@@ -53,8 +53,8 @@ export class AppComponent {
     updateGridWithGameRules() { 
         let copyGrid = new Grid(this.grid.getRows, this.grid.getColumn);
         
-        for (let row = 1; row <  this.grid.getRows - 1; row++) { //iterate through rows
-            for (let column = 1; column < this.grid.getColumn - 1; column++) { //iterate through columns
+        for (let row = 1; row <  this.grid.getRows - 1; row++) { 
+            for (let column = 1; column < this.grid.getColumn - 1; column++) { 
            
                 let totalCells = this.grid.checkSurroundingsCells(row, column);
                 //apply the rules to each cell:
@@ -80,9 +80,14 @@ export class AppComponent {
     } 
 
     //UIButtons
+    //When user press on one of the shapes this function is called and
+    //passing by the chosen type to the shapeService which implement the
+    //shape inside the grid automatically for us
     switchShapeTapped(type){
         this.grid = null;
-        this.grid = new Grid(400,400); //I think this (400) is more readable and less code than decalre a variable because we use it only once        this.shapeService.setGlinder(this.grid);   
+        //I think this (400 hardcoded) is more readable in less code than 
+        //decalre a variable because we use it only once
+        this.grid = new Grid(400,400); 
         this.shapeService.initShapeType(type, this.grid);
         this.start(); 
     }
