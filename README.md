@@ -1,5 +1,6 @@
 # game-of-life-angular
-game of life angular 4
+implemented the "game of life" in angular 4
+https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 # to install:
 1. install nodeJS from nodejs.org
