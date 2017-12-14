@@ -9,7 +9,7 @@ describe('ShapeService', () => {
     });
   });
 
-  it('should be created', inject([ShapeService], (service: GlinderService) => {
+  it('should be created', inject([ShapeService], (service: ShapeService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Grid } from './Grid/grid'
+import { Grid } from '../Models/Grid/grid'
 
 @Injectable()
 export class ShapeService {

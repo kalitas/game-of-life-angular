@@ -7,5 +7,7 @@ game of life angular 4
 3. clone or download this repo and enter its folder
 4. run `npm install`
 5. run `ng serve`
+6. go to http://localhost:4200/ in your browser
+7. enjoy
 
 

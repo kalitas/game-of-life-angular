@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
-import { AppComponent } from './app.component';
-import { ShapeService } from './shape.service';
+import { AppComponent } from './Components/app.component';
+import { ShapeService } from './Services/shape.service';
 
 
 @NgModule({
